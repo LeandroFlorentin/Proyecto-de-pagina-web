@@ -1,0 +1,107 @@
+//GRID area standar.
+
+header {
+    grid-area: header;
+}
+
+footer {
+    grid-area: footer;
+}
+
+//GRID area inicio.
+section {
+    grid-area: section;
+}
+
+#grilla {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "section section section"
+        "section section section"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr 40% 40% 1fr;
+}
+
+//GRID area producto
+nav {
+    grid-area: nav;
+}
+
+.divuno {
+    grid-area: divuno;
+    display: flex;
+    justify-content: space-around;
+}
+
+#grilla2 {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "divuno divuno divuno"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 8% 80% 0.5fr;
+}
+
+//GRID area sobrenosotros.
+.trabajo {
+    grid-area: trabajo;
+}
+
+.trabajodos {
+    grid-area: trabajodos;
+}
+
+#grilla3 {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "trabajo trabajo trabajo"
+        "trabajodos trabajodos trabajodos"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 40% 40% 0.5fr;
+}
+
+//GRID area contacto
+article {
+    grid-area: articulo;
+}
+
+.formulario {
+    grid-area: formulario;
+}
+
+#grilla4 {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "articulo articulo articulo"
+        "formulario formulario formulario"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 15% 60% 1fr;
+}
+
+//GRID area iniciar.
+.titulo {
+    grid-area: titulo;
+}
+
+form {
+    grid-area: completar;
+}
+
+#grilla5 {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "titulo titulo titulo"
+        "completar completar completar"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10% 50% 1fr;
+}

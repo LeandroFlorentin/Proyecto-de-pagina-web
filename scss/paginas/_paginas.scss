@@ -1,0 +1,499 @@
+@import "variables/variables";
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//INICIO.
+.seccion {
+    @include flex-center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .seccion__text {
+        display: block;
+        color: $gris-3;
+        font-size: 35px;
+        text-shadow: 1px 1px 2px $color-negro;
+    }
+
+    .seccion__p {
+        color: $gris-3;
+        display: block;
+        font-size: 20px;
+        text-shadow: 1px 1px 5px $gris-9;
+        width: 70%;
+    }
+
+    .seccion__imagen {
+        display: block;
+        width: 60%;
+        height: auto;
+        border-radius: 10px;
+        border: 5px solid $borde-violeta;
+    }
+}
+
+//PRODUCTOS.
+.navegador {
+    @include flex-center;
+    margin-top: 20px;
+    justify-content: space-around;
+
+    .superior {
+        display: flex;
+        width: 5%;
+
+        .carrito {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .buscador__input {
+        display: block;
+        height: auto;
+        width: 50%;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: none;
+        background: linear-gradient(to bottom, transparent, #eeeeee);
+        box-shadow: 1px 2px 5px 0 #cccccc;
+        border-bottom: 1px solid $borde-verde;
+        font-size: 16px;
+        transition: 500ms all;
+
+        &:hover {
+            background: $color-letra;
+        }
+
+        &::placeholder {
+            color: $color-negro;
+            padding-left: 5px;
+        }
+    }
+}
+
+#boton-carrito {
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    padding: 4px 6px;
+    transition: all .3s;
+    background-color: #222222;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: #000000;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.modal-contenedor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+
+    .modal-carrito {
+        position: relative;
+        min-width: 50%;
+        padding: 20px;
+        margin-top: -100%;
+        border-radius: 10px;
+        border: 2px solid $color-negro;
+        transition: all .5s;
+        background: #000;
+        border: 1px solid $borde-verde;
+
+        .precioProducto {
+            background: $gradiant-little;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+
+        h3 {
+            background: $gradiant-little;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            padding-bottom: 5px;
+        }
+
+        .boton-eliminar {
+            border-radius: 10px;
+            background: $gradiant-little;
+
+            &:hover {
+                background: $gradiant-big;
+            }
+        }
+
+        .fas {
+            background: #000;
+            padding: 0;
+            margin: 0;
+            color: red;
+        }
+
+        #carritoCerrar {
+            background: #000;
+        }
+
+        .boton-elim {
+            background: $gradiant-big;
+            border-radius: 10px;
+        }
+
+        h5 {
+            color: #fff
+        }
+
+        p {
+            color: #fff
+        }
+    }
+
+    #carritoCerrar {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        color: royalblue;
+        border: none;
+        background-color: white;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .precioProducto {
+        padding-top: 10px;
+
+    }
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+
+    .modal-carrito {
+        margin-top: 0;
+    }
+}
+
+.bloques {
+    display: inline-block;
+
+    .espacio {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .space {
+            width: 30%;
+            margin-bottom: 10px;
+            border: 1px solid #555555;
+            background: $color-negro;
+            box-shadow: 1px 2px 5px 0 $color-negro;
+            border-radius: 10px;
+            border-bottom: 2px solid $borde-verde;
+            transition: 500ms all;
+
+            &:hover {
+                background: #222222;
+                box-shadow: 1px 2px 5px 0 $color-negro;
+            }
+
+            .title {
+                margin-bottom: 5px;
+                color: $color-letra;
+            }
+
+            .img {
+                width: 95%;
+                height: auto;
+                border-radius: 5px;
+                border: 3px solid $borde-violeta;
+            }
+
+            .parrafo {
+                color: $color-letra;
+                width: 90%;
+                margin-top: 10px;
+                margin: auto;
+            }
+
+            .contenedor {
+                @include flex-center;
+                width: 100%;
+                height: 160px;
+            }
+
+            .btn {
+                width: 120px;
+                height: 40px;
+                background: $gradiant-little;
+                border: none;
+                border-radius: 20px;
+                font-size: 16px;
+                box-shadow: 1px 2px 5px 0 $color-negro;
+                color: #111111;
+
+                &:hover {
+                    background: #d1a101;
+                    background: $gradiant-big;
+                    box-shadow: 1px 2px 5px 0 #333333;
+                }
+            }
+        }
+    }
+}
+
+//SOBRENOSOTROS.
+.trabajo {
+    display: flex;
+
+    .letras {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 55%;
+
+        .trabajo__titulouno {
+            margin-top: 40px;
+        }
+
+        #parrafouno {
+            width: 70%;
+            margin-top: 40px;
+            display: inline;
+        }
+    }
+
+    #fotouno {
+        width: 45%;
+        height: auto;
+        margin-top: 40px;
+        margin-right: 5%;
+        border-radius: 20px;
+        box-shadow: 1px 2px 5px 0 $borde-violeta;
+        border: 2px solid $borde-violeta;
+    }
+}
+
+.trabajodos {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .letrasdos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .trabajodos__titulodos {
+            margin-top: 40px;
+        }
+
+        #parrafodos {
+            width: 70%;
+            margin-top: 40px;
+        }
+    }
+
+    #fotodos {
+        width: 45%;
+        height: auto;
+        margin-top: 40px;
+        margin-left: 5%;
+        border-radius: 20px;
+        box-shadow: 1px 2px 5px 0 $borde-violeta;
+        border: 2px solid $borde-violeta;
+    }
+}
+
+//CONTACTO.
+.articulo__h {
+    margin-top: 10px;
+    color: $color-negro;
+    margin-left: 10px;
+}
+
+.formulario {
+    .botones {
+        width: 46.5%;
+        height: 40px;
+        display: inline-block;
+        margin: 10px;
+        font-size: 16px;
+        color: $color-negro;
+        border: none;
+        border-bottom: 1px solid #38e091;
+        background: linear-gradient(to bottom, transparent, #eeeeee);
+        box-shadow: 1px 2px 5px 0 #cccccc;
+
+        &:hover {
+            background: #eeeeee;
+        }
+
+        &::placeholder {
+            padding-left: 5px;
+            color: $color-negro;
+        }
+
+        &:focus {
+            padding-left: 10px;
+        }
+    }
+
+    .area {
+        display: block;
+        height: 200px;
+        width: 95%;
+        margin-left: 10px;
+        margin-top: 10px;
+        resize: none;
+        background: linear-gradient(to bottom, transparent, #eeeeee);
+        box-shadow: 1px 2px 5px 0 #cccccc;
+        border-bottom: 1px solid #38e091;
+        font-size: 16px;
+
+        &:hover {
+            background: #eeeeee;
+        }
+
+        &::placeholder {
+            color: $color-negro;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        &:focus {
+            padding: 10px;
+        }
+    }
+
+    .send {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 45px;
+
+        .botonsitos {
+            height: 50px;
+            width: 100px;
+            border: none;
+            border-radius: 20px;
+            background: $gradiant-little;
+            box-shadow: 1px 2px 5px #666666;
+            color: $color-negro;
+            font-size: 16px;
+            text-align: center;
+
+            &:hover {
+                background: $gradiant-big;
+                box-shadow: 1px 2px 4px #333;
+            }
+        }
+    }
+}
+
+//INICIAR.
+.titulo {
+    display: block;
+    @include flex-center;
+    width: 100%;
+    margin-top: 20px;
+
+    .titulo_h {
+        font-size: 26px;
+    }
+}
+
+.completar {
+    @include flex-center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+
+    .completar input::placeholder {
+        color: $color-negro;
+        padding: 5px;
+    }
+
+    .completar input:focus {
+        padding-left: 10px;
+    }
+
+    .completar__label {
+        font-size: 22px;
+    }
+
+    .btn {
+        display: flex;
+        margin-top: 20px;
+        width: 25%;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        border-bottom: 1px solid #38e091;
+        background: linear-gradient(to bottom, transparent, #eeeeee);
+        box-shadow: 1px 2px 5px 0 #cfcfcf;
+        transition: 500ms all;
+
+        &:hover {
+            background: #eeeeee;
+        }
+    }
+
+    .boton_iniciar {
+        width: 120px;
+        height: 40px;
+        background: $gradiant-little;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        box-shadow: 1px 2px 5px 0 $color-negro;
+        color: #111111;
+        margin-top: 20px;
+        transition: 1000ms all;
+
+        &:hover {
+            background: $gradiant-big;
+            box-shadow: 1px 2px 5px 0 #333333;
+        }
+    }
+
+    .contraseña {
+        text-align: center;
+        color: $color-negro;
+        text-decoration: underline $color-negro;
+        display: block;
+        font-size: 18px;
+    }
+
+    .boton_iniciar--registrar {
+        @extend .boton_iniciar;
+
+        .boton_iniciar--registrar:hover {
+            @extend .boton_iniciar:hover;
+        }
+    }
+}

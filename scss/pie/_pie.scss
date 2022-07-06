@@ -1,0 +1,54 @@
+.pie {
+    background: $color-negro;
+    border-top: 2px solid $borde-azul;
+    width: 100wh;
+
+    .texto_pie {
+        display: block;
+        $texto: (centrar: center,
+                transparente: transparent,
+                textt: text,
+                espacio: 10px);
+
+        .pie__h1 {
+            background: $gradiant-little;
+            text-align: map-get($texto, centrar);
+            -webkit-text-fill-color: map-get($texto, transparente);
+            -webkit-background-clip: map-get($texto, textt);
+            padding: map-get($texto, espacio);
+            font-size: 25px;
+        }
+
+        .pie__p {
+            background: $gradiant-little;
+            text-align: map-get($texto, centrar);
+            -webkit-text-fill-color: map-get($texto, transparente);
+            -webkit-background-clip: map-get($texto, textt);
+            padding: map-get($texto, espacio);
+            font-size: 18px;
+        }
+
+        .pie__p2 {
+            background: $gradiant-little;
+            text-align: map-get($texto, centrar);
+            -webkit-text-fill-color: map-get($texto, transparente);
+            -webkit-background-clip: map-get($texto, textt);
+            padding: map-get($texto, espacio);
+            font-size: 18px;
+        }
+    }
+
+    .contacto {
+        display: block;
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+
+        .redes__img {
+            padding: 10px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+}

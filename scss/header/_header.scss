@@ -1,0 +1,164 @@
+@import "variables/variables";
+
+.header {
+    background: $color-negro;
+    border-bottom: 2px solid $borde-azul;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+        list-style: none;
+        height: 50px;
+        width: 200px;
+
+        &:hover {
+            box-shadow: $shadow $color-negro;
+        }
+
+        li {
+            position: relative;
+            width: 50px;
+            height: 50px;
+
+            &:hover ul {
+                display: block;
+            }
+
+            .botonsito {
+                height: 50px;
+                width: 50px;
+                margin-left: 10px;
+                animation-name: efecto;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in;
+                animation-duration: 0.8s;
+                animation-delay: 0;
+            }
+
+            ul {
+                position: absolute;
+                background: $color-negro;
+                width: 400%;
+                height: 400px;
+                display: flex;
+                display: none;
+
+                li {
+                    border-top: 1px solid $color-negro;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 25%;
+                    border-bottom: 1px solid #fff;
+                    transition: 300ms all;
+
+                    &:hover {
+                        background: #222222;
+                        box-shadow: $shadow $gris-3;
+                    }
+
+
+                    a {
+                        color: #cccccc;
+                        text-decoration: none;
+                        display: block;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    .icono {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20%;
+        animation-name: efecto;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.8s;
+        animation-delay: 0;
+
+        @keyframes efecto {
+            0% {
+                transform: scale(0.1);
+            }
+
+            11% {
+                transform: scale(0.2);
+            }
+
+            22% {
+                transform: scale(0.3);
+            }
+
+            33% {
+                transform: scale(0.4);
+            }
+
+            44% {
+                transform: scale(0.5);
+            }
+
+            55% {
+                transform: scale(0.6);
+            }
+
+            66% {
+                transform: scale(0.7);
+            }
+
+            77% {
+                transform: scale(0.8);
+            }
+
+            88% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #logo {
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+        }
+
+        .header__titulo {
+            font-size: 40px;
+            background: $gradiant-little;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+    }
+
+    .navegador {
+        width: 200px;
+        display: flex;
+        justify-content: right;
+        margin-right: 10px;
+
+        .navegador__text {
+            animation-name: efecto;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in;
+            animation-duration: 0.8s;
+            animation-delay: 0;
+        }
+
+        .navegador__text img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

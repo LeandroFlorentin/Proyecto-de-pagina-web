@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="OMEGA">
+      <meta name="description" content="Pagina de busqueda de productos">
+      <meta name="keywords" content="PLC, Buscar">
+      <title>Omega</title>
+      <link rel="icon" href="../img/iconos/omega.png">
+      <link rel="stylesheet" type="text/css" href="../css/main.css">
+      <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+      <script defer src="../javascript/stock.js"></script>
+      <script defer src="../javascript/productos.js"></script>
+      <script defer src="../javascript/modal.js"></script>
+      <link rel="stylesheet" href="sweetalert2.min.css">
+      <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+      <div id="grilla2">
+            <header class="header">
+                  <ul>
+                        <li><img class="botonsito" alt="Inicio" src="../img/boton/boton.png">
+                              <ul>
+                                    <li><br><br><a href="../index.html">INICIO</a></li>
+                                    <li><br><br><a href="productos.html">PRODUCTOS</a></li>
+                                    <li><br><br><a href="../html/sobrenosotros.html">SOBRE
+                                                NOSOTROS</a></li>
+                                    <li><br><br><a href="../html/contacto.html">CONTACTO</a></li>
+                              </ul>
+                        </li>
+                  </ul>
+                  <div class="icono">
+                        <img id="logo" class="header__logo" alt="OMEGA" src="../img/iconos/omega.png">
+                        <h2 class="header__titulo">OMEGA</h2>
+                  </div>
+                  <nav class="navegador">
+                        <h3 class="navegador__text"><a href="../html/iniciar.html"><img alt="Iniciar"
+                                          src="../img/boton/iniciar-sesion.png"></a></h3>
+                  </nav>
+            </header>
+            <nav class="navegador">
+                  <input id="buscador" class="buscador__input" type="search" name="busqueda" placeholder="Buscar">
+                  <div class="superior">
+                        <img id="boton-carrito" class="carrito modal-active" alt="Carrito"
+                              src="../img/boton/carrito.png">
+                  </div>
+            </nav>
+            <div class="bloques">
+                  <div id="lugar" class="espacio">
+                  </div>
+            </div>
+            <div class="modal-contenedor">
+                  <div class="modal-carrito">
+                        <h3>Carrito</h3>
+                        <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+                        <div id="segundo"></div>
+                        <button id="eliminador" class="boton-eliminar">Vaciar carrito</button>
+                        <h4 class="precioProducto">Precio total: $<span id="precioTotal">0</span></h4>
+                  </div>
+            </div>
+            <footer class="pie">
+                  <div class="texto_pie">
+                        <h1 class="pie__h1">OMEGA</h1>
+                        <p class="pie__p">Grupo de desarrollo OMEGA | Politicas de privacidad</p>
+                        <p class="pie__p2">Contacto : EmpresaOMEGA@hotmail.com</p>
+                  </div>
+                  <div class="contacto">
+                        <a href="https://facebook.com" target="_BLANK"><img alt="Facebook" class="redes__img"
+                                    src="../img/pie/facebook.png"></a>
+                        <a href="https://twitter.com" target="_BLANK"><img alt="Twitter" class="redes__img"
+                                    src="../img/pie/twitter.png"></a>
+                        <a href="https://instagram.com" target="_BLANK"><img alt="Instagram" class="redes__img"
+                                    src="../img/pie/instagram.png"></a>
+                        <a href="https://linkedin.com" target="_BLANK"><img alt="Linkedin" class="redes__img"
+                                    src="../img/pie/linkedin.png"></a>
+                  </div>
+            </footer>
+      </div>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="sweetalert2.all.min.js"></script>
+      <script src="sweetalert2.min.js"></script>
+</body>
+
+</html>
