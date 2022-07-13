@@ -11,27 +11,50 @@ eliminador.addEventListener("click", eliminarCarrito)
 
 //Array
 
+let productos = []
 let carrito = []
 let carritoenLS = recorrercarritoLS();
 if (carritoenLS.length > 0) carrito = carritoenLS
 renderCarrito()
 
+//class y constructor 
+
+class Producto {
+    constructor(id, titulo, img, texto, precio) {
+        this.titulo = titulo;
+        this.img = img;
+        this.texto = texto;
+        this.precio = precio;
+        this.id = id;
+    }
+}
+
+//Llamada a la API.
+
+
+
 //Generacion de productos.
 
-productos.forEach((ele) => {
-    const { titulo, img, texto, precio, id } = ele
-    carac.innerHTML += `
-    <div class="space">
-        <h3 class="title">${titulo}</h1>
-        <img class="img" alt="Producto" src=${img}>
-        <p class="parrafo">${texto}</p>
-        <p class="parrafo">Precio: <b>${precio}</b></p>
-        <div class="contenedor">
-            <button onclick="agregarAlCarrito(${id})" class="btn">Agregar</button>
-        </div>
-    </div>
-    `
-})
+fetch('../stock.json')
+    .then((respuesta) => respuesta.json())
+    .then((datos) => {
+        productos = datos;
+
+        datos.forEach((ele) => {
+            const { titulo, img, texto, precio, id } = ele
+            carac.innerHTML += `
+            <div class="space">
+                <h3 class="title">${titulo}</h1>
+                <img class="img" alt="Producto" src=${img}>
+                <p class="parrafo">${texto}</p>
+                <p class="parrafo">Precio: <b>${precio}</b></p>
+                <div class="contenedor">
+                    <button onclick="agregarAlCarrito(${id})" class="btn">Agregar</button>
+                </div>
+            </div>
+            `
+        })
+    })
 
 //Funciones
 
@@ -48,9 +71,11 @@ function recorrercarritoLS() {
 
 }
 
-function agregarAlCarrito(id) {
-    let item = productos.find((prod) => prod.id === id);
-    carrito.push(item);
+function agregarAlCarrito(iden) {
+    let item = productos.find((prod) => prod.id === iden);
+    const { titulo, img, texto, precio, id } = item
+    const productoNuevo = new Producto(id, titulo, img, texto, precio);
+    carrito.push(productoNuevo);
 
     if (carrito.length > 0) {
         itemJSON = JSON.stringify(item)
