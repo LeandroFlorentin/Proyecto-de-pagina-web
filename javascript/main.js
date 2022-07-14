@@ -29,13 +29,9 @@ class Producto {
     }
 }
 
-//Llamada a la API.
+//Llamada a la API y generacion de productos en el HTML.
 
-
-
-//Generacion de productos.
-
-fetch('../stock.json')
+fetch('../json/stock.json')
     .then((respuesta) => respuesta.json())
     .then((datos) => {
         productos = datos;
@@ -55,8 +51,14 @@ fetch('../stock.json')
             `
         })
     })
+    .catch(() => {
+        alert("No existen datos en la base de datos.")
+    })
 
 //Funciones
+
+//Nos fijamos si hay archivos JSON en el localstorage.
+//Igualamos el obj al JSON.parse(localStorage.getItem("producto " + count)), ya que en caso de no existir ese producto en especifico la funcion devuelve false y cancela el while.
 
 function recorrercarritoLS() {
     let carritos = []
@@ -70,6 +72,8 @@ function recorrercarritoLS() {
     return carritos
 
 }
+
+//Agregamos un producto que se vera en nuestro localstorage.
 
 function agregarAlCarrito(iden) {
     let item = productos.find((prod) => prod.id === iden);
@@ -102,6 +106,8 @@ function agregarAlCarrito(iden) {
     precioTotal()
 }
 
+//Creamos el producto en el carrito.
+
 function renderCarrito() {
 
     carritoContenedor.innerHTML = ""
@@ -121,6 +127,8 @@ function renderCarrito() {
         carritoContenedor.append(dive)
     })
 }
+
+//Eliminamos un producto a partir de la id dada en el HTML de rendercarrito y eliminamos todo el localstorage.
 
 function eliminarProducto(id) {
     const Toast = Swal.mixin({
@@ -155,6 +163,8 @@ function eliminarProducto(id) {
 
 }
 
+//Una vez que eliminamos todo el local storage, tomamos el carrito sin el elemento que eliminamos y pusheamos cada elemento al localstorage otra vez.
+
 function agregarAlCarrote(array) {
     array.forEach((elementu, pos) => {
         itemJSON = JSON.stringify(elementu)
@@ -164,6 +174,8 @@ function agregarAlCarrote(array) {
     renderCarrito()
     precioTotal()
 }
+
+//Eliminacion total del carrito.
 
 function eliminarCarrito() {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -189,7 +201,6 @@ function eliminarCarrito() {
             localStorage.clear()
 
             carritoenLS = recorrercarritoLS();
-
             renderCarrito();
             precioTotal()
             swalWithBootstrapButtons.fire(
@@ -200,6 +211,8 @@ function eliminarCarrito() {
         }
     })
 }
+
+//Nos devuelve el valor del precio total.
 
 function precioTotal() {
     let total = 0;
